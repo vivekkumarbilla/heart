@@ -1,18 +1,8 @@
 from django.shortcuts import render,redirect
-from sklearn import linear_model
 from .forms import Parameters
-from .regressor import LogitRegression
-import pandas as pd
-import numpy as np
-from . import regressor
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LogisticRegression 
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from django.contrib.auth import authenticate,login 
-from django.contrib.auth.decorators import login_required
-from .models import HeartData,DoctorHospital
+from .models import *
 from django.core.mail import send_mail
 import pickle
 # Create your views here.
@@ -59,6 +49,19 @@ def quickpredict(request):  #Predicts the results after form is submitted.Works 
 
             output = model.predict([[Age,Gender,Activity,Rest,Night,Exercise,Cyanosis,Diabetes,bp,clubbing]])   
             
+            saved_data = QuickHeartData(age=Age , 
+                gender = Gender,
+                activity = Activity,
+                rest = Rest,
+                night = Night,
+                exercise = Exercise,
+                diabetes = Diabetes,
+                bp = bp,
+                cyanosis = Cyanosis,
+                clubbing = clubbing,
+                probability = 100   if output == 1 else 0
+            ) 
+            saved_data.save()
             output1 = 'high'  if output == 1 else 'low'
             return render(request , 'output.html' , {'output1':output1})
         else:
@@ -122,7 +125,6 @@ def index(request): #Directs the user to home page . Different for authenticated
                     owner = request.user,
                     probability = 100   if output == 1 else 0
                 ) 
-                 # Saved the authenticated users data in the database.
                 saved_data.save()
                 return render(request , 'output2.html',{'output1':output1 , 'danger':output1})
 
