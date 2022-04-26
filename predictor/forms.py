@@ -1,18 +1,31 @@
 from django import forms
 from .models import HeartData
 
+GENDER_CHOICES = (('-','Select an Option'),(1,'Male'),(0,'Female'))
+
+CHOICES = (('-','Select an Option'),(1,'Yes'),(0,'No'))
+
 class Parameters(forms.Form):
     age = forms.IntegerField(max_value=120,min_value=1 , widget=forms.NumberInput(attrs={'id':'a1' , 'type':'text','class':'validate'}) , error_messages={'invalid':'Please enter a number'})
-    sex= forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a2' , 'type':'text','class':'validate'}))
-    cp = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a3' , 'type':'text','class':'validate'}))
-    trestbps = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a4' , 'type':'text','class':'validate'}))
-    chol = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a5' , 'type':'text','class':'validate'}))
-    fbs = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a6' , 'type':'text','class':'validate'}))
-    restcg = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a7' , 'type':'text','class':'validate'}))
-    thalach = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a8' , 'type':'text','class':'validate'}))
-    exang = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a9' , 'type':'text','class':'validate'}))
-    oldpeak = forms.FloatField(widget=forms.NumberInput(attrs={'id':'a10' , 'type':'text','class':'validate'}))
-    slope = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a11' , 'type':'text','class':'validate'}))
-    ca = forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a12' , 'type':'text','class':'validate'}))
-    thal= forms.IntegerField(widget=forms.NumberInput(attrs={'id':'a13' , 'type':'text','class':'validate'}))
+    gender= forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    activity= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    rest= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    night= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    exercise= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    diabetes= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    
+    dquestion1= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    dquestion2= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    dquestion3= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    dquestion4= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    
+    bp= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    
+    bpquestion1= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    bpquestion2= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    bpquestion3= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    bpquestion4= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}),required=False)
+    
+    cyanosis= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
+    clubbing= forms.ChoiceField(choices=CHOICES, widget=forms.Select(attrs={'class':'validate','required': 'true'}))
     

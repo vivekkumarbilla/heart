@@ -14,44 +14,56 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 from .models import HeartData,DoctorHospital
 from django.core.mail import send_mail
+import pickle
 # Create your views here.
+
+
+model = pickle.load(open('model.pkl' , 'rb'))
 
 def quickpredict(request):  #Predicts the results after form is submitted.Works only if user is not authenticated
     
     if request.method=='POST':
-
+        print(request.POST)
         form=Parameters(request.POST)
         if form.is_valid():
-            age=form.cleaned_data['age']
-            sex=form.cleaned_data['sex']
-            cp=form.cleaned_data['cp']
-            trestbps=form.cleaned_data['trestbps']
-            chol=form.cleaned_data['chol']
-            fbs=form.cleaned_data['fbs']
-            restcg=form.cleaned_data['restcg']
-            thalach=form.cleaned_data['thalach']
-            exang=form.cleaned_data['exang']
-            oldpeak=form.cleaned_data['oldpeak']
-            slope=form.cleaned_data['slope']
-            ca=form.cleaned_data['ca']
-            thal=form.cleaned_data['thal']
+            print('valid form')
+            Age = form.cleaned_data['age']
+            Gender = int(form.cleaned_data['gender'])
+            Activity = int(form.cleaned_data['activity'])
+            Rest = int(form.cleaned_data['rest'])
+            Night = int(form.cleaned_data['night'])
+            Exercise = int(form.cleaned_data['exercise'])
+            Cyanosis = int(form.cleaned_data['cyanosis'])
+            Diabetes = int(form.cleaned_data['diabetes'])
+            if (Diabetes==0):
+                dia1 = int(form.cleaned_data['dquestion1'])
+                dia2 = int(form.cleaned_data['dquestion2'])
+                dia3 = int(form.cleaned_data['dquestion3'])
+                dia4 = int(form.cleaned_data['dquestion4'])
+                if( dia1 + dia2 + dia3 + dia4 >=2 ):
+                    Diabetes = 1
+                else :
+                    Diabetes = 0 
+            bp = form.cleaned_data['bp']
+            print(type(Diabetes),type(Activity))
+            if(bp==0):
+                bp1 = int(form.cleaned_data['bpquestion1'])
+                bp2 = int(form.cleaned_data['bpquestion2'])
+                bp3 = int(form.cleaned_data['bpquestion3'])
+                bp4 = int(form.cleaned_data['bpquestion4'])
+                if( bp1 + bp2 + bp3 + bp3 >=2 ):
+                    bp = 1
+                else :
+                    bp = 0  
+            clubbing = int(form.cleaned_data['clubbing'])
+
+            output = model.predict([[Age,Gender,Activity,Rest,Night,Exercise,Cyanosis,Diabetes,bp,clubbing]])   
             
-            #regressor = LogitRegression()
-            X,Y=regressor.find()
-            #scaler = MinMaxScaler(feature_range=(0, 1)) 
-            #X=scaler.fit_transform(X)
-            X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 1/3, random_state = 0 ) # Split the dataset into 70-30
-            #model = LogitRegression(learning_rate=0.01 , iterations=1000)
-            model = LogitRegression(learning_rate=0.0001 , iterations=1000) # Passing learning_rate and iterations to LogitRegression class
-            model.fit(X_train, Y_train) # Fitting the model with training set
-            output , output1 = model.predict(np.array([age,sex,cp,trestbps,chol,fbs,restcg,thalach,exang,oldpeak,slope,ca,thal]).reshape(1,-1))
-            print('-----------------------------------------')
-            print(output)
-            output1=output1[0]
+            output1 = 'high'  if output == 1 else 'low'
             return render(request , 'output.html' , {'output1':output1})
         else:
             print('The form was not valid.')
-            return redirect('/')
+            return render(request,'quickpredict.html',{'form':form,'error': 'Please Enter all attributes correctly'})
         
         
     else:
@@ -64,48 +76,59 @@ def index(request): #Directs the user to home page . Different for authenticated
     
             form=Parameters(request.POST)
             if form.is_valid():
-                age=form.cleaned_data['age']
-                sex=form.cleaned_data['sex']
-                cp=form.cleaned_data['cp']
-                trestbps=form.cleaned_data['trestbps']
-                chol=form.cleaned_data['chol']
-                fbs=form.cleaned_data['fbs']
-                restcg=form.cleaned_data['restcg']
-                thalach=form.cleaned_data['thalach']
-                exang=form.cleaned_data['exang']
-                oldpeak=form.cleaned_data['oldpeak']
-                slope=form.cleaned_data['slope']
-                ca=form.cleaned_data['ca']
-                thal=form.cleaned_data['thal']
+                Age = form.cleaned_data['age']
+                Gender = int(form.cleaned_data['gender'])
+                Activity = int(form.cleaned_data['activity'])
+                Rest = int(form.cleaned_data['rest'])
+                Night = int(form.cleaned_data['night'])
+                Exercise = int(form.cleaned_data['exercise'])
+                Diabetes = int(form.cleaned_data['diabetes'])
+                if (Diabetes==0):
+                    dia1 = int(form.cleaned_data['dquestion1'])
+                    dia2 = int(form.cleaned_data['dquestion2'])
+                    dia3 = int(form.cleaned_data['dquestion3'])
+                    dia4 = int(form.cleaned_data['dquestion4'])
+                    if( dia1 + dia2 + dia3 + dia4 >=2 ):
+                        Diabetes = 1
+                    else :
+                        Diabetes = 0 
+                bp = form.cleaned_data['bp']
+                print(type(Diabetes),type(Activity))
+                if(bp==0):
+                    bp1 = int(form.cleaned_data['bpquestion1'])
+                    bp2 = int(form.cleaned_data['bpquestion2'])
+                    bp3 = int(form.cleaned_data['bpquestion3'])
+                    bp4 = int(form.cleaned_data['bpquestion4'])
+                    if( bp1 + bp2 + bp3 + bp4 >=2 ):
+                        bp = 1
+                    else :
+                        bp = 0  
+                Cyanosis = int(form.cleaned_data['cyanosis'])
+                clubbing = int(form.cleaned_data['clubbing'])
 
+                output = model.predict([[Age,Gender,Activity,Rest,Night,Exercise,Cyanosis,Diabetes,bp,clubbing]])   
 
-                X,Y=regressor.find() 
-                X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 1/3, random_state = 0 )
-                #model = LogitRegression(learning_rate=0.01 , iterations=1000)
-                model = LogitRegression(learning_rate=0.0001 , iterations=1000)
-                model.fit(X_train, Y_train)
-                output , output1 = model.predict(np.array([age,sex,cp,trestbps,chol,fbs,restcg,thalach,exang,oldpeak,slope,ca,thal]).reshape(1,-1))
-                danger = 'high' if output == 1 else 'low'
-                output1=output1[0]
-                saved_data = HeartData(age=age ,  # Saving to database
-                sex = sex,
-                cp = cp,
-                trestbps = trestbps,
-                chol = chol,
-                fbs = fbs,
-                restcg = restcg , 
-                thalach = thalach , 
-                exang = exang,
-                oldpeak = oldpeak,
-                slope = slope,
-                ca = ca,
-                thal = thal,
-                owner = request.user,
-                probability = output1
-                )  #Saved the authenticated users data in the database.
+                output1 = 'high'  if output == 1 else 'low'
+                saved_data = HeartData(age=Age , 
+                    gender = Gender,
+                    activity = Activity,
+                    rest = Rest,
+                    night = Night,
+                    exercise = Exercise,
+                    diabetes = Diabetes,
+                    bp = bp,
+                    cyanosis = Cyanosis,
+                    clubbing = clubbing,
+                    owner = request.user,
+                    probability = 100   if output == 1 else 0
+                ) 
+                 # Saved the authenticated users data in the database.
                 saved_data.save()
-                return render(request , 'output2.html',{'output1':output1 , 'danger':danger})
+                return render(request , 'output2.html',{'output1':output1 , 'danger':output1})
 
+            else:
+                print('The form was not valid.')
+                return render(request,'user.html',{'form':form,'error': 'Please Enter all attributes correctly'})
 
         form = Parameters()
         return render(request , 'user.html', {'form':form})
@@ -142,14 +165,14 @@ def doctorhospital(request): # Displays list of doctors and hospitals for user
         return render(request , 'doctorshospitals.html',{'datas':datas})
     return render('/')
 
-def contact(request): #Diplays contact page . Sends email to HDPS using SMTP.
+def contact(request): #Diplays contact page . Sends email  using SMTP.
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         title = request.POST.get('title1')
         message = request.POST.get('message')
         
-        send_mail(title , message+'\n'+'From : '+name+'\n'+'Email : '+email ,from_email=email, recipient_list=['focusus1@gmail.com']) #Sends mail to HDPS
+        send_mail(title , message+'\n'+'From : '+name+'\n'+'Email : '+email ,from_email=email, recipient_list=['heart.projectkj@gmail.com']) #Sends mail 
     return render(request , 'contact.html')
 
 

@@ -24,5 +24,13 @@
       
     });
 
+    $("option").each(function(i){
+        if($(this).val()==='-'){
+          $(this).prop('disabled',true);
+        }
+    });
+
+    $('select').formSelect();
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space

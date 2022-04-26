@@ -25,15 +25,15 @@ SECRET_KEY = 'd1v#2-xne%^%s!_&-k0m#3awh+u2$3zx(jyiie+9^9fs3$^bbl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'predictor',
     'django.contrib.admin',
     'django.contrib.auth',
+    'predictor',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -115,6 +115,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -124,8 +125,10 @@ STATICFILES_DIRS=[
 ]
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
+
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''  #Your email address here
-EMAIL_HOST_PASSWORD = '' #Your email password here
+EMAIL_HOST_USER = 'heart.projectkj@gmail.com'  #Your email address here
+EMAIL_HOST_PASSWORD = 'vlarovssnoewuasf' #Your email password here
 EMAIL_PORT = 587

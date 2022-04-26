@@ -39,19 +39,16 @@
    <thead>
      <tr>
          <th>S.No</th>
-         <th>age</th>
-         <th>sex</th>
-         <th>cp</th>
-         <th>threstbps</th>
-         <th>chol</th>
-         <th>fbs</th>
-         <th>restecg</th>
-         <th>thalach</th>
-         <th>exang</th>
-         <th>oldpeak</th>
-         <th>slope</th>
-         <th>ca</th>
-         <th>thal</th>
+         <th>Age</th>
+         <th>Gender</th>
+         <th>Activity</th>
+         <th>Rest</th>
+         <th>Night</th>
+         <th>Exercise</th>
+         <th>Diabetes</th>
+         <th>BP</th>
+         <th>Cyanosis</th>
+         <th>Clubbing</th>
          <th>Probabilty</th>
      </tr>
    </thead>
@@ -61,19 +58,16 @@
      <tr>
        <td>{{ forloop.counter }}</td>
        <td>{{ data.age }}</td>
-       <td>{{ data.sex }}</td>
-       <td>{{ data.cp }}</td>
-       <td>{{ data.trestbps }}</td>
-       <td>{{ data.chol }}</td>
-       <td>{{ data.fbs }}</td>
-       <td>{{ data.restcg }}</td>
-       <td>{{ data.thalach }}</td>
-       <td>{{ data.exang }}</td>
-       <td>{{ data.oldpeak }}</td>
-       <td>{{ data.slope }}</td>
-       <td>{{ data.ca }}</td>
-       <td>{{ data.thal }}</td>
-       <td>{{ data.probability }}</td>
+       <td>{{ data.get_gender_display }}</td>
+       <td>{{ data.get_activity_display }}</td>
+       <td>{{ data.get_rest_display }}</td>
+       <td>{{ data.get_night_display }}</td>
+       <td>{{ data.get_exercise_display }}</td>
+       <td>{{ data.get_diabetes_display }}</td>
+       <td>{{ data.get_bp_display }}</td>
+       <td>{{ data.get_cyanosis_display }}</td>
+       <td>{{ data.get_clubbing_display }}</td>
+       <td>{{ data.get_probability_display }}</td>
        
      </tr>
      {% endfor %}

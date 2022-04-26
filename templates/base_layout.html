@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HDPS</title>
+    <title>Heart Disease Predictor</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -46,7 +46,7 @@
              
               
                 <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
                 {% if user.is_authenticated %}
                 <a class=" white black-text waves-effect waves-dark btn  modal-trigger" href="{% url 'signout' %}"><b>SIGN OUT </b></a>
                 {% else %}
@@ -93,25 +93,32 @@
           <div class="" style=" width: 90%; margin: auto;">
             <div class="row">
               <div class="col  s12 m6 l3 ">
-                <h5 class="white-text">HDPS</h5>
-                <p class="grey-text text-lighten-4">Heart Disease Prediction System (HDPS) is a user-friendly web-based application which predicts heart disease using 
-                    Machine Learning algorithm (ML). </p>
+                <h5 class="white-text">Heart Disease Prediction System</h5>
+                <p class="grey-text text-lighten-4">Heart Disease Prediction System is a user-friendly web-based application which predicts probability of heart disease. </p>
               </div>
-              <div class="  col l2 m6 s12 offset-l1 ">
+              <!-- <div class="  col l2 m6 s12 offset-l1 ">
                 <h5 class="white-text">Quick Links</h5>
                 <ul>
-               <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Signin</a></li>
-                </ul>
-              </div>
+                </ul> 
+              </div> -->
+              <div class="  col l2 m6 s12 offset-l1 ">
+                <h5 class="white-text">Developers </h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chinmay-tavarej-84927317b"  target="_blank">Chinmay Tavarej</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chetan-patil-1713131a0" target="_blank">Chetan Patil</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/krushi-mehta-0403431b6" target="_blank">Krushi Mehta</a></li>
+                </ul> 
+              </div> 
               <div class="col l2 m6 s12  ">
                   <h5 class="white-text">Contacts</h5>
                   <ul>
-                  <li>Kathmandu Nepal</li>
-                  <li>HDPS@gmail.com</li>
-                  <li>987377373</li>
+                  <li>chinmay.tavarej@somaiya.edu</li>
+                  <li>patil.c@somaiya.edu</li>
+                  <li>krushi.mehta@somaiya.edu</li>
               </ul>     
               </div>
   
@@ -119,22 +126,22 @@
                   <h5 class="white-text">Visit Us</h5>
                   <br>
                   <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;"  class="fab fa-youtube-square fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
+              <a href="https://www.facebook.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="https://www.instagram.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
+              <a href="https://www.twitter.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
   
               </div>
             </div>
             <hr>
           
           
-          <div class="footer-copyright">
+         <!-- <div class="footer-copyright">
           
           
             ©  HDPS All Rights Reserved
             
           
-          </div>
+          </div> -->
       </div>
         </footer>
   
@@ -143,24 +150,32 @@
             <div class="center-align row">
               <div class="col  s12 m6 l3 ">
                 <h5 class="white-text">HDPS</h5>
-                <p class="grey-text text-lighten-4">Heart Disease Prediction System (HDPS) is a user-friendly web-based application which predicts heart disease using 
-                    Machine Learning algorithm (ML). </p>
+                <p class="grey-text text-lighten-4">Heart Disease Prediction System is a user-friendly web-based application which predicts probability of heart disease. </p>
               </div>
               <div class="  col l2 m6 s12 offset-l1 ">
                 <h5 class="white-text">Quick Links</h5>
-                <ul>
+               <!-- <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Signin</a></li>
-                </ul>
+                </ul> -->
               </div>
+
+              <div class="  col l2 m6 s12 offset-l1 ">
+                <h5 class="white-text">Developers </h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chinmay-tavarej-84927317b"  target="_blank">Chinmay Tavarej</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chetan-patil-1713131a0" target="_blank">Chetan Patil</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/krushi-mehta-0403431b6" target="_blank">Krushi Mehta</a></li>
+                </ul> 
+              </div> 
               <div class="col l2 m6 s12  ">
                   <h5 class="white-text">Contacts</h5>
                   <ul>
-                  <li>Kathmandu Nepal</li>
-                  <li>HDPS@gmail.com</li>
-                  <li>987377373</li>
+                  <li>chinmay.tavarej@somaya.edu</li>
+                  <li>patil.c@somaiya.edu</li>
+                  <li>krushi.mehta@somaiya.edu</li>
               </ul>     
               </div>
   
@@ -168,9 +183,9 @@
                   <h5 class="white-text">Visit Us</h5>
                   
               <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-youtube-square fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
-              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
+              <a href="https://www.facebook.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="https://www.instagram.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
+              <a href="https://www.twitter.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
   
               </div>
             </div>
@@ -190,6 +205,7 @@
       </section>
   
   
+      {% block jss %}
  <!--  Scripts-->
  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
  <script src="https://kit.fontawesome.com/9478bf204b.js" crossorigin="anonymous"></script>
@@ -198,6 +214,7 @@
  <script src="{% static 'js/init.js' %}"></script>
 
 
+ {% endblock %}
 
 
 </body>

@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>HDPS</title>
+  <title>Heart Disease Predictor</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -73,7 +73,7 @@
       <ul id="slide-out" class="sidenav sidenav-fixed">
         <li><div class="user-view">
           <div class="background">
-            <img src="{% static 'img/about.png' %}">
+            <img src="{% static 'img/user_back.png' %}">
           </div>
           <a href="#user"><img class="circle" src="{% static 'img/user.png' %}"></a>
           <a href="#name"><span class="white-text name">User : {{ request.user.username }} </span></a>
@@ -93,7 +93,7 @@
        
 
        
-        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'symptoms' %}"><i class="material-icons black-text" >assignment_late</i> Symptoms  </a></li>
+        <!--<li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'symptoms' %}"><i class="material-icons black-text" >assignment_late</i> Symptoms  </a></li> -->
 
         <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'prevention' %}"><i class="material-icons black-text">local_pharmacy</i> Prevention   </a></li>
 
@@ -117,10 +117,9 @@
                 <div class="row">
                   <div class="col  s12 m6 l3 ">
                     <h5 class="white-text">HDPS</h5>
-                    <p class="grey-text text-lighten-4">Heart Disease Prediction System (HDPS) is a user-friendly web-based application which predicts heart disease using 
-                        Machine Learning algorithm (ML). </p>
+                    <p class="grey-text text-lighten-4">Heart Disease Prediction System is a user-friendly web-based application which predicts probability of heart disease.</p>
                   </div>
-                  <div class="  col l2 m6 s12 offset-l1 ">
+                 <!-- <div class="  col l2 m6 s12 offset-l1 ">
                     <h5 class="white-text">Quick Links</h5>
                     <ul>
                    <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
@@ -128,13 +127,21 @@
                       <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
                       <li><a class="grey-text text-lighten-3" href="#!">Signin</a></li>
                     </ul>
-                  </div>
+                  </div> -->
+                  <div class="  col l2 m6 s12 offset-l1 ">
+                    <h5 class="white-text">Developers </h5>
+                    <ul>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chinmay-tavarej-84927317b"  target="_blank">Chinmay Tavarej</a></li>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chetan-patil-1713131a0" target="_blank">Chetan Patil</a></li>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/krushi-mehta-0403431b6" target="_blank">Krushi Mehta</a></li>
+                    </ul> 
+                  </div> 
                   <div class="col l2 m6 s12  ">
                       <h5 class="white-text">Contacts</h5>
                       <ul>
-                      <li>Kathmandu Nepal</li>
-                      <li>HDPS@gmail.com</li>
-                      <li>987377373</li>
+                      <li>chinmay.tavarej@somaiya.edu</li>
+                      <li>patil.c@somaiya.edu</li>
+                      <li>krushi.mehta@somaiya.edu</li>
                   </ul>     
                   </div>
       
@@ -142,22 +149,22 @@
                       <h5 class="white-text">Visit Us</h5>
                       <br>
                       <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;"  class="fab fa-youtube-square fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
+                  <a href="https://www.facebook.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
+                  <a href="https://twitter.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
       
                   </div>
                 </div>
                 <hr>
               
               
-              <div class="footer-copyright">
+           <!--   <div class="footer-copyright">
               
               
                 ©  HDPS All Rights Reserved
                 
               
-              </div>
+              </div>  -->
           </div>
             </footer>
       
@@ -166,10 +173,9 @@
                 <div class="center-align row">
                   <div class="col  s12 m6 l3 ">
                     <h5 class="white-text">HDPS</h5>
-                    <p class="grey-text text-lighten-4">Heart Disease Prediction System (HDPS) is a user-friendly web-based application which predicts heart disease using 
-                        Machine Learning algorithm (ML). </p>
+                    <p class="grey-text text-lighten-4">Heart Disease Prediction System is a user-friendly web-based application which predicts probability of heart disease. </p>
                   </div>
-                  <div class="  col l2 m6 s12 offset-l1 ">
+                  <!--<div class="  col l2 m6 s12 offset-l1 ">
                     <h5 class="white-text">Quick Links</h5>
                     <ul>
                       <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
@@ -177,36 +183,44 @@
                       <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
                       <li><a class="grey-text text-lighten-3" href="#!">Signin</a></li>
                     </ul>
-                  </div>
+                  </div> -->
+                  <div class="  col l2 m6 s12 offset-l1 ">
+                    <h5 class="white-text">Developers </h5>
+                    <ul>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chinmay-tavarej-84927317b"  target="_blank">Chinmay Tavarej</a></li>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/chetan-patil-1713131a0" target="_blank">Chetan Patil</a></li>
+                      <li><a class="grey-text text-lighten-3" href="https://in.linkedin.com/in/krushi-mehta-0403431b6" target="_blank">Krushi Mehta</a></li>
+                    </ul> 
+                  </div> 
                   <div class="col l2 m6 s12  ">
                       <h5 class="white-text">Contacts</h5>
-                      <ul>
-                      <li>Kathmandu Nepal</li>
-                      <li>HDPS@gmail.com</li>
-                      <li>987377373</li>
-                  </ul>     
+                    <ul>
+                      <li>chinmay.tavarej@somaiya.edu</li>
+                      <li>patil.c@somaiya.edu</li>
+                      <li>krushi.mehta@somaiya.edu</li>
+                    </ul>     
                   </div>
       
                   <div class=" col l3 m6 s12 offset-l1 ">
                       <h5 class="white-text">Visit Us</h5>
                       
                   <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-youtube-square fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
-                  <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
+                  <a href="https://www.facebook.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram fa-2x"></i></a>
+                  <a href="https://twitter.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i> </a>
       
                   </div>
                 </div>
                 <hr>
               
               
-              <div class=" footer-copyright">
+            <!--  <div class=" footer-copyright">
               
          
                 ©  HDPS All Rights Reserved
                 
              
-              </div>
+              </div>-->
           </div>
             </footer>
       
@@ -218,6 +232,7 @@
       
       
     
+          {% block jss %}
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -226,5 +241,6 @@
   <script src="{% static 'js/materialize.js' %}"></script>
   <script src="{% static 'js/init.js' %}"></script>
 
+  {% endblock %}
   </body>
 </html>

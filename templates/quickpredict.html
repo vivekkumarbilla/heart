@@ -27,9 +27,19 @@
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.sex }}
-          <label for="a2">Sex</label>
-          <span class="helper-text">Enter your sex here</span>
+          {{ form.gender }}
+          <label for="a2">Gender</label>
+          <span class="helper-text">Enter your Gender here</span>
+        </div>
+      </div>
+
+      
+      <div class="row">
+        <div class="input-field col s12 ">
+          <i class="material-icons prefix">directions</i>
+          {{ form.activity }}
+          <label for="a2">Breathlessness during activity</label>
+          <span class="helper-text">Are you facing any Breathlessness during activity?</span>
         </div>
       </div>
 
@@ -38,111 +48,154 @@
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.cp }}
-          <label for="a3">CP</label>
-          <span class="helper-text">Enter your Constructive Pericarditis here</span>
+          {{ form.rest }}
+          <label for="a3">Breathlessness At Rest</label>
         </div>
       </div>
 
-      
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.trestbps }}
-          <label for="a4">Trestbps</label>
-          <span class="helper-text">Enter your Resting Blood Pressure here</span>
+          {{ form.night }}
+          <label for="a3">Awake by breathlessness at night</label>
         </div>
       </div>
 
-      
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.chol }}
-          <label for="a5">Chol</label>
-          <span class="helper-text">Enter your Cholesterol here</span>
+          {{ form.exercise }}
+          <label for="a3">Exercise induced angina (chest pain after exercise)</label>
         </div>
       </div>
 
-      
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.fbs }}
-          <label for="a6">Fbs</label>
-          <span class="helper-text">Enter your Fasting Blood Sugar here</span>
+          {{ form.diabetes }}
+          <label for="a3">Are you Diabetic?</label>
         </div>
       </div>
 
-      
-      <div class="row">
-        <div class="input-field col s12 ">
-          <i class="material-icons prefix">directions</i>
-          {{ form.restcg }}
-          <label for="a7">Restcg</label>
-          <span class="helper-text">Enter your Resting Electrocardiographic Result here</span>
-        </div>
-      </div>
 
-      
-      <div class="row">
-        <div class="input-field col s12 ">
-          <i class="material-icons prefix">directions</i>
-          {{ form.thalach }}
-          <label for="a8">Thalach</label>
-          <span class="helper-text">Enter your Maximum Heart Rate Achieved here</span>
-        </div>
-      </div>
 
-      
-      <div class="row">
-        <div class="input-field col s12 ">
-          <i class="material-icons prefix">directions</i>
-          {{ form.exang }}
-          <label for="a9">Exang</label>
-          <span class="helper-text">Enter your Exercise Induced Angina here</span>
-        </div>
-      </div>
 
-      
-      <div class="row">
-        <div class="input-field col s12 ">
-          <i class="material-icons prefix">directions</i>
-          {{ form.oldpeak }}
-          <label for="a10">Oldpeak</label>
-          <span class="helper-text">Enter your Exercise Relative to Rest here</span>
+
+
+
+
+      <div class="diabetes-questions hide" id="diabetes-questions">
+
+      <p>Diabetes Questions</p>
+
+
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.dquestion1 }}
+            <label for="a3">1)Excessive thirst ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.dquestion2 }}
+            <label for="a3">2)Excessive Urination ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.dquestion3 }}
+            <label for="a3">3)Weight loss ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.dquestion4 }}
+            <label for="a3">4)Have numb or tingling hands or feet ?</label>
+          </div>
         </div>
       </div>
 
 
       
-      <div class="row">
-        <div class="input-field col s12 ">
-          <i class="material-icons prefix">directions</i>
-          {{ form.slope }}
-          <label for="a11">Slope</label>
-          <span class="helper-text">Enter your Segment/Heart Rate here</span>
-        </div>
-      </div>
 
-      
+
+
+
+
+
       <div class="row">
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.ca }}
-          <label for="a12">Ca</label>
-          <span class="helper-text">Enter your Ca here</span>
+          {{ form.bp }}
+          <label for="a3">High Blood Pressure ( over 140/90 ) ?</label>
         </div>
       </div>
 
 
+
+
+
+
+      
+      <div class="bp-questions hide" id="bp-questions">
+
+      <p>Blood Pressure Questions</p>
+
+
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.bpquestion1 }}
+            <label for="a3">1)Severe headache ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.bpquestion2 }}
+            <label for="a3">2)feeling fatigued all day ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.bpquestion3 }}
+            <label for="a3">3)Agitation or unusual changes in behaviour ?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 ">
+            <i class="material-icons prefix">directions</i>
+            {{ form.bpquestion4 }}
+            <label for="a3">4)Nosebleed ?</label>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
       
       <div class="row">
+        <a class="nav-link" href="https://en.wikipedia.org/wiki/Cyanosis" target="_blank"> Refer cyanosis<span class="sr-only"></span></a>
         <div class="input-field col s12 ">
           <i class="material-icons prefix">directions</i>
-          {{ form.thal }}
-          <label for="a13">Thal</label>
-          <span class="helper-text">Enter your Thalassemia here</span>
+          {{ form.cyanosis }}
+          <label for="a3">History of cyanosis (bluish discoloration of fingers/lips)</label>
+        </div>
+      </div>
+      <div class="row">
+        <a class="nav-link" href="https://en.wikipedia.org/wiki/Nail_clubbing" target="_blank"> Refer Clubbing<span class="sr-only"></span></a>
+        <div class="input-field col s12 ">
+          <i class="material-icons prefix">directions</i>
+          {{ form.clubbing }}
+          <label for="a3">Clubbing (The last part of the finger may appear large or bulging.)</label>
         </div>
       </div>
       
@@ -161,4 +214,43 @@
 
   <br>
 
+  {% endblock %}
+  {% block jss %}
+  {{block.super}}
+  {% if error %}
+  <script>
+    (function($){
+  $(function(){
+    M.toast({html: 'Please Enter all parameters properly',classes: ' red darken-1'})
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+  </script>
+  {% endif %}
+  
+<script>
+ 
+  document.getElementById('id_diabetes').addEventListener('change',(e) => {
+  console.log('entered ',e.target.value)
+    if(e.target.value === "0"){
+      console.log('no value')
+      document.getElementById('diabetes-questions').classList.remove('hide')
+    }
+    else{
+      document.getElementById('diabetes-questions').classList.add('hide')
+    }
+  })
+  
+    document.getElementById('id_bp').addEventListener('change',(e) => {
+  console.log('entered ',e.target.value)
+    if(e.target.value === "0"){
+      console.log('no value')
+      document.getElementById('bp-questions').classList.remove('hide')
+    }
+    else{
+      document.getElementById('bp-questions').classList.add('hide')
+    }
+  }) 
+  
+  
+  </script>
   {% endblock %}
